@@ -1,7 +1,11 @@
 package com.example.rockPaperScissorsTDD;
 
+import java.util.Random;
+
 public class RandomGenerator {
-    public static int getNumber() {
-        return 2;
+    Random rand = new Random();
+
+    public int getRandom() {
+        return rand.nextInt(3);
     }
 }
