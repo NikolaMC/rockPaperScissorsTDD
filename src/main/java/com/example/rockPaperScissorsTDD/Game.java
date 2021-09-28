@@ -79,8 +79,6 @@ public class Game {
 */
     }
 
-
-
     private String cpuChoice() {
         RandomGenerator randomGenerator = new RandomGenerator();
         int choice = randomGenerator.getRandom();
@@ -91,13 +89,9 @@ public class Game {
             case 1:
                 return "SCISSORS";
 
-            case 2:
-                return "PAPER";
-
             default:
-                return "shit went sideways";
+                return "PAPER";
 
         }
     }
-
 }
