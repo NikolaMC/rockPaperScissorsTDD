@@ -23,7 +23,7 @@ public class Game {
         System.out.println("You have chosen the name " + player.getName());
         System.out.println("The game begins now.\nChoose between ROCK, PAPER and SCISSOR");
 
-        while (isGameLoop(player,cpu)) {
+        while (isGameLoop(player, cpu)) {
             String playerChoice = playerScanner.nextLine().toUpperCase();
 
             gameLogic(player, cpu, playerChoice);
@@ -36,13 +36,13 @@ public class Game {
         System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
         System.out.println(cpu.getName() + " score: " + counter.getComputerPoints());
 
-        if (counter.getPlayerPoints() == 3){
+        if (counter.getPlayerPoints() == 3) {
             System.out.println(player.getName() + " wins!");
             return false;
         }
-        if (counter.getComputerPoints() == 3){
+        if (counter.getComputerPoints() == 3) {
             System.out.println(cpu.getName() + " wins!");
-            return  false;
+            return false;
         }
 
         return true;
@@ -58,17 +58,29 @@ public class Game {
         if ((playerChoice.equals(cpuChoice))) {
             System.out.println("Draw!");
         } else if ((playerChoice.equals("ROCK")) && (cpuChoice.equals("SCISSORS"))) {
-            if (rock.beats(scissors)) {counter.playerWon();}
+            if (rock.beats(scissors)) {
+                counter.playerWon();
+            }
         } else if ((playerChoice.equals("SCISSORS")) && (cpuChoice.equals("PAPER"))) {
-            if (scissors.beats(paper)) { counter.playerWon(); }
+            if (scissors.beats(paper)) {
+                counter.playerWon();
+            }
         } else if ((playerChoice.equals("PAPER")) && (cpuChoice.equals("ROCK"))) {
-            if(paper.beats(rock)){ counter.playerWon(); }
-        }else if ((cpuChoice.equals("ROCK")) && (playerChoice.equals("SCISSORS"))){
-            if(rock.beats(scissors)){ counter.computerWon(); }
-        }else if ((cpuChoice.equals("SCISSORS")) && (playerChoice.equals("PAPER"))){
-            if(scissors.beats(paper)){ counter.computerWon(); }
-        }else if ((cpuChoice.equals("PAPER")) && (playerChoice.equals("ROCK"))){
-            if(paper.beats(rock)){ counter.computerWon(); }
+            if (paper.beats(rock)) {
+                counter.playerWon();
+            }
+        } else if ((cpuChoice.equals("ROCK")) && (playerChoice.equals("SCISSORS"))) {
+            if (rock.beats(scissors)) {
+                counter.computerWon();
+            }
+        } else if ((cpuChoice.equals("SCISSORS")) && (playerChoice.equals("PAPER"))) {
+            if (scissors.beats(paper)) {
+                counter.computerWon();
+            }
+        } else if ((cpuChoice.equals("PAPER")) && (playerChoice.equals("ROCK"))) {
+            if (paper.beats(rock)) {
+                counter.computerWon();
+            }
         }
 
         /*
