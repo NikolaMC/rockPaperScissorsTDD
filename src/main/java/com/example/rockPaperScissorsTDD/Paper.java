@@ -1,6 +1,7 @@
 package com.example.rockPaperScissorsTDD;
 
-public class Paper implements GameUtilsInterface {
+public class Paper implements Gestures {
+
     @Override
     public boolean beats(Scissors scissors) {
         return false;
