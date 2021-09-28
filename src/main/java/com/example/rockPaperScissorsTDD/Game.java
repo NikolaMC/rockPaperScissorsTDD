@@ -22,24 +22,30 @@ public class Game {
 
         System.out.println("You have chosen the name " + player.getName());
         System.out.println("The game begins now.\nChoose between ROCK, PAPER and SCISSOR");
-        boolean gameLoop = true;
-        while (gameLoop) {
+
+        while (isGameLoop(player,cpu)) {
             String playerChoice = playerScanner.nextLine().toUpperCase();
 
             gameLogic(player, cpu, playerChoice);
 
-            System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
-            System.out.println(cpu.getName() + " score: " + counter.getComputerPoints());
-
-            if (counter.getPlayerPoints() == 3){
-                gameLoop = false;
-                System.out.println(player.getName() + " wins!");
-            }
-            if (counter.getComputerPoints() == 3){
-                gameLoop = false;
-                System.out.println(cpu.getName() + " wins!");
-            }
         }
+    }
+
+    private boolean isGameLoop(Player player, Player cpu) {
+
+        System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
+        System.out.println(cpu.getName() + " score: " + counter.getComputerPoints());
+
+        if (counter.getPlayerPoints() == 3){
+            System.out.println(player.getName() + " wins!");
+            return false;
+        }
+        if (counter.getComputerPoints() == 3){
+            System.out.println(cpu.getName() + " wins!");
+            return  false;
+        }
+
+        return true;
     }
 
     private void gameLogic(Player player, Player cpu, String playerChoice) {
