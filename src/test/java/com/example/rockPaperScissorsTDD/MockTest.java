@@ -2,9 +2,6 @@ package com.example.rockPaperScissorsTDD;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,14 +27,12 @@ public class MockTest {
     }
 
     @Test
-    void name() {
+    void test_call_on_real_method() {
 
         //Given
-        doCallRealMethod().when(game).gameLogic(player,cpu,"PAPER");
+        doCallRealMethod().when(game).gameLogic(player, cpu, "PAPER");
 
         //When
-
-
 
         //then
         //verify
@@ -45,11 +40,19 @@ public class MockTest {
     }
 
     @Test
-    void test() {
+    void test_rock_lose_against_paper() {
+        when(rock.beats(paper)).thenReturn(false);
+        assertFalse(rock.beats(paper));
+    }
 
-      //  assertTrue(rock.beats(paper));
-        when(eq(rock.beats(paper))).thenReturn(false);
-
-
+    @Test
+    void test_rock_wins_against_scissors() {
+        when(rock.beats(scissors)).thenReturn(true);
+        assertTrue(rock.beats(scissors));
+    }
+    @Test
+    void test_rock_draw_against_rock() {
+        when(rock.beats(rock)).thenReturn(false);
+        assertFalse(rock.beats(rock));
     }
 }

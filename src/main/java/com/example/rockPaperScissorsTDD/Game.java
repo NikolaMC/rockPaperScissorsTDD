@@ -48,7 +48,7 @@ public class Game {
         return true;
     }
 
-    private void gameLogic(Player player, Player cpu, String playerChoice) {
+    public void gameLogic(Player player, Player cpu, String playerChoice) {
         String cpuChoice = cpuChoice();
         System.out.println("cpu choice " + cpuChoice);
 
