@@ -1,6 +1,5 @@
 package com.example.rockPaperScissorsTDD;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -8,7 +7,7 @@ public class Game {
     private final Scissors scissors = new Scissors();
     private final Paper paper = new Paper();
     private GesturesFactory gesturesFactory = new GesturesFactory();
-    private GameCounter counter = new GameCounter();
+    private final GameCounter counter = new GameCounter();
 
     public Game() {
     }
@@ -29,6 +28,9 @@ public class Game {
 
             gameLogic(player, cpu, playerChoice);
 
+            System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
+            System.out.println(cpu.getName() + " score: " + counter.getComputerPoints());
+
             if (counter.getPlayerPoints() == 3){
                 gameLoop = false;
                 System.out.println(player.getName() + " wins!");
@@ -44,6 +46,27 @@ public class Game {
         String cpuChoice = cpuChoice();
         System.out.println("cpu choice " + cpuChoice);
 
+        /*System.out.println("players choice " + (player.throwGesture(playerChoice)));
+        System.out.println("cpu choice " + cpu.throwGesture(cpuChoice));*/
+
+        if ((playerChoice.equals(cpuChoice))) {
+            System.out.println("Draw!");
+        } else if ((playerChoice.equals("ROCK")) && (cpuChoice.equals("SCISSORS"))) {
+            if (rock.beats(scissors)) {counter.playerWon();}
+        } else if ((playerChoice.equals("SCISSORS")) && (cpuChoice.equals("PAPER"))) {
+            if (scissors.beats(paper)) { counter.playerWon(); }
+        } else if ((playerChoice.equals("PAPER")) && (cpuChoice.equals("ROCK"))) {
+            if(paper.beats(rock)){ counter.playerWon(); }
+        }else if ((cpuChoice.equals("ROCK")) && (playerChoice.equals("SCISSORS"))){
+            if(rock.beats(scissors)){ counter.computerWon(); }
+        }else if ((cpuChoice.equals("SCISSORS")) && (playerChoice.equals("PAPER"))){
+            if(scissors.beats(paper)){ counter.computerWon(); }
+        }else if ((cpuChoice.equals("PAPER")) && (playerChoice.equals("ROCK"))){
+            if(paper.beats(rock)){ counter.computerWon(); }
+        }
+
+        /*
+
         if(player.throwGesture(playerChoice).beats(cpu.throwGesture(cpuChoice))) {
             counter.playerWon();
             System.out.println("Player won!");
@@ -53,26 +76,10 @@ public class Game {
         } else {
             System.out.println("It's a tie!");
         }
-
-
-
-
-       /* if (player.throwGesture(playerChoice) == cpu.throwGesture(cpuChoice)) {
-            System.out.println("Draw!");
-        } else if ((player.throwGesture(playerChoice) == rock) && (cpu.throwGesture(cpuChoice) == scissors)) {
-            if (rock.beats(scissors)) {counter.playerWon();}
-        } else if ((player.throwGesture(playerChoice) == scissors) && (cpu.throwGesture(cpuChoice) == paper)) {
-            if (scissors.beats(paper)) { counter.playerWon(); }
-        } else if ((player.throwGesture(playerChoice) == paper) && (cpu.throwGesture(cpuChoice) == rock)) {
-            if(paper.beats(rock)){ counter.playerWon(); }
-        }else if ((cpu.throwGesture(cpuChoice) == rock) && (player.throwGesture(playerChoice) == scissors)){
-            if(rock.beats(scissors)){ counter.computerWon(); }
-        }else if ((cpu.throwGesture(cpuChoice) == scissors) && (player.throwGesture(playerChoice) == paper)){
-            if(scissors.beats(paper)){ counter.computerWon(); }
-        }else if ((cpu.throwGesture(cpuChoice) == paper) && (player.throwGesture(playerChoice) == rock)){
-            if(paper.beats(rock)){ counter.computerWon(); }
-        }*/
+*/
     }
+
+
 
     private String cpuChoice() {
         RandomGenerator randomGenerator = new RandomGenerator();

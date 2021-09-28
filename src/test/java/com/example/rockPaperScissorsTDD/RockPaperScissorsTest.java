@@ -3,20 +3,21 @@ package com.example.rockPaperScissorsTDD;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RockPaperScissorsTest {
 
     Rock rock;
     Paper paper;
     Scissors scissors;
+    GameCounter counter;
 
     @BeforeEach
     void setUp() {
         rock = new Rock();
         paper = new Paper();
         scissors = new Scissors();
+        counter = new GameCounter();
     }
 
     // Rock tests
@@ -24,6 +25,7 @@ public class RockPaperScissorsTest {
     @Test
     void rock_beats_scissors_success() {
         assertTrue(rock.beats(scissors));
+
     }
 
     @Test
@@ -68,5 +70,15 @@ public class RockPaperScissorsTest {
     @Test
     void scissors_beats_rock_fail() {
         assertFalse(scissors.beats(rock));
+    }
+
+    @Test
+    void test_player_wins_3_to_0_vs_cpu() {
+        assertTrue(scissors.beats(paper));
+        // räknelogik här
+        assertTrue(scissors.beats(paper));
+        // räknelogik här
+        assertTrue(scissors.beats(paper));
+        // räknelogik här
     }
 }

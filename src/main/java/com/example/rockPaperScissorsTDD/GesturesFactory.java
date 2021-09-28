@@ -3,13 +3,13 @@ package com.example.rockPaperScissorsTDD;
 public class GesturesFactory {
 
     public Gestures getGesture(String gesture){
-        if (gesture.equalsIgnoreCase("ROCK")) {
+        if (gesture.equals("ROCK")) {
             return new Rock();
         }
-        if (gesture.equalsIgnoreCase("PAPER")) {
+        if (gesture.equals("PAPER")) {
             return new Paper();
         }
-        if (gesture.equalsIgnoreCase("SCISSORS")) {
+        if (gesture.equals("SCISSORS")) {
             return new Scissors();
         }
         return null;
