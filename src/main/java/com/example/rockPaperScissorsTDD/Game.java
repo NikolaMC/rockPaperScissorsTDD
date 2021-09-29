@@ -23,7 +23,11 @@ public class Game {
             String playerChoice = playerScanner.nextLine().toUpperCase();
             String cpuChoice = cpuChoice();
 
-            gameLogic(player, cpu, playerChoice, cpuChoice);
+            if (!playerChoice.equals("ROCK") && !playerChoice.equals("PAPER") && !playerChoice.equals("SCISSORS")) {
+                System.out.println("Invalid gesture");
+            } else {
+                gameLogic(player, cpu, playerChoice, cpuChoice);
+            }
         }
     }
 

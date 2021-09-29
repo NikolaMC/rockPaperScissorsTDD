@@ -3,9 +3,7 @@ package com.example.rockPaperScissorsTDD;
 public class Scissors implements Gestures {
 
     @Override
-    public boolean beats(Paper paper) {
-        return true;
-    }
+    public boolean beats(Paper paper) { return true; }
 
     @Override
     public boolean beats(Rock rock) {
