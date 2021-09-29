@@ -84,24 +84,6 @@ public class MockTest {
         System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
         System.out.println(cpu.getName() + " score: " + counter.getComputerPoints() + "\n");
 
-        game.gameLogic(player,cpu,"ROCK", "SCISSORS");
-        when(rock.beats(scissors)).thenReturn(true);
-        assertTrue(rock.beats(scissors));
-        counter.playerWon();
-        assertEquals(2, counter.getPlayerPoints());
-        assertEquals(0, counter.getComputerPoints());
-        System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
-        System.out.println(cpu.getName() + " score: " + counter.getComputerPoints() + "\n");
-
-        game.gameLogic(player,cpu,"ROCK", "SCISSORS");
-        when(rock.beats(scissors)).thenReturn(true);
-        assertTrue(rock.beats(scissors));
-        counter.playerWon();
-        assertEquals(3, counter.getPlayerPoints());
-        assertEquals(0, counter.getComputerPoints());
-        System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
-        System.out.println(cpu.getName() + " score: " + counter.getComputerPoints() + "\n");
-
         System.out.println(player.getName() + " wins!");
     }
 
