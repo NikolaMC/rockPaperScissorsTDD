@@ -20,8 +20,9 @@ public class Game {
 
         while (isGameLoop(player, cpu)) {
             String playerChoice = playerScanner.nextLine().toUpperCase();
+            String cpuChoice = cpuChoice();
 
-            gameLogic(player, cpu, playerChoice);
+            gameLogic(player, cpu, playerChoice, cpuChoice);
         }
     }
 
@@ -43,9 +44,10 @@ public class Game {
         return true;
     }
 
-    public void gameLogic(Player player, Player cpu, String playerChoice) {
-        String cpuChoice = cpuChoice();
-        System.out.println("CPU chose: " + cpuChoice);
+    public void gameLogic(Player player, Player cpu, String playerChoice, String cpuChoice) {
+
+        System.out.println(player.getName() + " choice is: " + playerChoice);
+        System.out.println("CPU choice is: " + cpuChoice);
 
         if (player.throwGesture(playerChoice).beats(cpu.throwGesture(cpuChoice))) {
             counter.playerWon();

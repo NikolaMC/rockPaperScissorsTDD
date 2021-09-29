@@ -15,6 +15,7 @@ public class MockTest {
     Game game;
     Gestures gestures;
     GesturesFactory gesturesFactory;
+    GameCounter counter;
 
     @BeforeEach
     void setUp() {
@@ -26,6 +27,7 @@ public class MockTest {
         game = new Game();
         gestures = mock(Gestures.class);
         gesturesFactory = mock(GesturesFactory.class);
+        counter = new GameCounter();
     }
 
     @Test
@@ -37,13 +39,13 @@ public class MockTest {
     void test_call_on_real_method() {
 
         //Given
-        doCallRealMethod().when(game).gameLogic(player, cpu, "PAPER");
+        doCallRealMethod().when(game).gameLogic(player, cpu, "PAPER", "ROCK");
 
         //When
-        game.gameLogic(player, cpu, "PAPER");
+        game.gameLogic(player, cpu, "PAPER", "ROCK");
         //then
         //verify
-        verify(game, times(1)).gameLogic(player, cpu, "PAPER");
+        verify(game, times(1)).gameLogic(player, cpu, "PAPER", "ROCK");
     }
 
     @Test
@@ -63,18 +65,44 @@ public class MockTest {
         when(rock.beats(rock)).thenReturn(false);
         assertFalse(rock.beats(rock));
     }
-
+/*
+    println är bara till för demonstrativt syfte, de flesta åtkomsterna till dessa sker i loopen i startGame() vilket vi ej hoppar in i här.
+ */
     @Test
-    void test_player_wins_3_to_0_vs_cpu() {
+    void test_player_wins_3_to_0_vs_cpu_hardcoded() {
 
+        player = new Player("spelaren");
 
+        System.out.println("You have chosen the name " + player.getName());
 
-//        assertTrue(scissors.beats(paper));
-//        // räknelogik här
-//        assertTrue(scissors.beats(paper));
-//        // räknelogik här
-//        assertTrue(scissors.beats(paper));
-//        // räknelogik här
+        game.gameLogic(player,cpu,"ROCK", "SCISSORS");
+        when(rock.beats(scissors)).thenReturn(true);
+        assertTrue(rock.beats(scissors));
+        counter.playerWon();
+        assertEquals(1, counter.getPlayerPoints());
+        assertEquals(0, counter.getComputerPoints());
+        System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
+        System.out.println(cpu.getName() + " score: " + counter.getComputerPoints() + "\n");
+
+        game.gameLogic(player,cpu,"ROCK", "SCISSORS");
+        when(rock.beats(scissors)).thenReturn(true);
+        assertTrue(rock.beats(scissors));
+        counter.playerWon();
+        assertEquals(2, counter.getPlayerPoints());
+        assertEquals(0, counter.getComputerPoints());
+        System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
+        System.out.println(cpu.getName() + " score: " + counter.getComputerPoints() + "\n");
+
+        game.gameLogic(player,cpu,"ROCK", "SCISSORS");
+        when(rock.beats(scissors)).thenReturn(true);
+        assertTrue(rock.beats(scissors));
+        counter.playerWon();
+        assertEquals(3, counter.getPlayerPoints());
+        assertEquals(0, counter.getComputerPoints());
+        System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
+        System.out.println(cpu.getName() + " score: " + counter.getComputerPoints() + "\n");
+
+        System.out.println(player.getName() + " wins!");
     }
 
 }
