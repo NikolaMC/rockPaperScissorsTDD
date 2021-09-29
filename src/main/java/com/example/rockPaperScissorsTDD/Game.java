@@ -3,14 +3,10 @@ package com.example.rockPaperScissorsTDD;
 import java.util.Scanner;
 
 public class Game {
-    private final Rock rock = new Rock();
-    private final Scissors scissors = new Scissors();
-    private final Paper paper = new Paper();
     private GesturesFactory gesturesFactory = new GesturesFactory();
     private final GameCounter counter = new GameCounter();
 
-    public Game() {
-    }
+    public Game() { }
 
     public void startGame() {
         System.out.println("Please enter your name");
@@ -58,27 +54,27 @@ public class Game {
         if ((playerChoice.equals(cpuChoice))) {
             System.out.println("Draw!");
         } else if ((playerChoice.equals("ROCK")) && (cpuChoice.equals("SCISSORS"))) {
-            if (rock.beats(scissors)) {
+            if (player.throwRock().beats(cpu.throwScissors())) {
                 counter.playerWon();
             }
         } else if ((playerChoice.equals("SCISSORS")) && (cpuChoice.equals("PAPER"))) {
-            if (scissors.beats(paper)) {
+            if (player.throwScissors().beats(cpu.throwPaper())) {
                 counter.playerWon();
             }
         } else if ((playerChoice.equals("PAPER")) && (cpuChoice.equals("ROCK"))) {
-            if (paper.beats(rock)) {
+            if (player.throwPaper().beats(cpu.throwRock())) {
                 counter.playerWon();
             }
         } else if ((cpuChoice.equals("ROCK")) && (playerChoice.equals("SCISSORS"))) {
-            if (rock.beats(scissors)) {
+            if (cpu.throwRock().beats(player.throwScissors())) {
                 counter.computerWon();
             }
         } else if ((cpuChoice.equals("SCISSORS")) && (playerChoice.equals("PAPER"))) {
-            if (scissors.beats(paper)) {
+            if (cpu.throwScissors().beats(player.throwPaper())) {
                 counter.computerWon();
             }
         } else if ((cpuChoice.equals("PAPER")) && (playerChoice.equals("ROCK"))) {
-            if (paper.beats(rock)) {
+            if (cpu.throwPaper().beats(player.throwRock())) {
                 counter.computerWon();
             }
         }

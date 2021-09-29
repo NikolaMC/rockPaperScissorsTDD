@@ -1,8 +1,8 @@
 package com.example.rockPaperScissorsTDD;
 
 public class GameCounter {
-    public int playerPoints = 0;
-    public int computerPoints = 0;
+    private int playerPoints = 0;
+    private int computerPoints = 0;
 
     public int getPlayerPoints() {
         return playerPoints;

@@ -14,6 +14,7 @@ public class MockTest {
     Player cpu;
     Game game;
     Gestures gestures;
+    GesturesFactory gesturesFactory;
 
     @BeforeEach
     void setUp() {
@@ -22,8 +23,14 @@ public class MockTest {
         scissors = mock(Scissors.class);
         player = new Player("player");
         cpu = new Player("cpu");
-        game = mock(Game.class);
+        game = new Game();
         gestures = mock(Gestures.class);
+        gesturesFactory = mock(GesturesFactory.class);
+    }
+
+    @Test
+    void name() {
+
     }
 
     @Test
@@ -33,10 +40,10 @@ public class MockTest {
         doCallRealMethod().when(game).gameLogic(player, cpu, "PAPER");
 
         //When
-
+        game.gameLogic(player, cpu, "PAPER");
         //then
         //verify
-
+        verify(game, times(1)).gameLogic(player, cpu, "PAPER");
     }
 
     @Test
@@ -50,9 +57,24 @@ public class MockTest {
         when(rock.beats(scissors)).thenReturn(true);
         assertTrue(rock.beats(scissors));
     }
+
     @Test
     void test_rock_draw_against_rock() {
         when(rock.beats(rock)).thenReturn(false);
         assertFalse(rock.beats(rock));
     }
+
+    @Test
+    void test_player_wins_3_to_0_vs_cpu() {
+
+
+
+//        assertTrue(scissors.beats(paper));
+//        // räknelogik här
+//        assertTrue(scissors.beats(paper));
+//        // räknelogik här
+//        assertTrue(scissors.beats(paper));
+//        // räknelogik här
+    }
+
 }

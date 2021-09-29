@@ -16,4 +16,5 @@ public class Paper implements Gestures {
     public boolean beats(Paper paper) {
         return false;
     }
+
 }
