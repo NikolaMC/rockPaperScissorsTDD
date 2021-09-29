@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Game {
     private final GameCounter counter = new GameCounter();
 
-    public Game() { }
+    public Game() {
+    }
 
     public void startGame() {
         System.out.println("Please enter your name");
@@ -48,8 +49,9 @@ public class Game {
 
         System.out.println(player.getName() + " choice is: " + playerChoice);
         System.out.println("CPU choice is: " + cpuChoice);
-
-        if (!player.throwGesture(playerChoice).beats(cpu.throwGesture(cpuChoice))) {
+        if (playerChoice.equals(cpuChoice)) {
+            System.out.println("It's a tie!");
+        } else if (!player.throwGesture(playerChoice).beats(cpu.throwGesture(cpuChoice))) {
             counter.playerWon();
             System.out.println(player.getName() + " won this round!");
         } else if (!cpu.throwGesture(cpuChoice).beats(player.throwGesture(playerChoice))) {
