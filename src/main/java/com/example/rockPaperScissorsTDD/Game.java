@@ -58,7 +58,7 @@ public class Game {
             counter.computerWon();
             System.out.println(cpu.getName() + " won this round!");
         } else {
-            System.out.println("It's a tie!");
+            System.out.println("What did you do? This was NOT supposed to happen");
         }
 
     }
