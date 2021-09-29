@@ -49,10 +49,12 @@ public class Game {
         System.out.println(player.getName() + " choice is: " + playerChoice);
         System.out.println("CPU choice is: " + cpuChoice);
 
-        if (player.throwGesture(playerChoice).beats(cpu.throwGesture(cpuChoice))) {
+        if (!player.throwGesture(playerChoice).beats(cpu.throwGesture(cpuChoice))) {
             counter.playerWon();
-        } else if (cpu.throwGesture(cpuChoice).beats(player.throwGesture(playerChoice))) {
+            System.out.println(player.getName() + " won this round!");
+        } else if (!cpu.throwGesture(cpuChoice).beats(player.throwGesture(playerChoice))) {
             counter.computerWon();
+            System.out.println(cpu.getName() + " won this round!");
         } else {
             System.out.println("It's a tie!");
         }

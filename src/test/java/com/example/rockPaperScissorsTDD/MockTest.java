@@ -55,7 +55,7 @@ public class MockTest {
     }
 
     @Test
-    void test_rock_wins_against_scissors() {
+    void test_rock_wins_against_scissors_() {
         when(rock.beats(scissors)).thenReturn(true);
         assertTrue(rock.beats(scissors));
     }
@@ -69,22 +69,14 @@ public class MockTest {
     println är bara till för demonstrativt syfte, de flesta åtkomsterna till dessa sker i loopen i startGame() vilket vi ej hoppar in i här.
  */
     @Test
-    void test_player_wins_3_to_0_vs_cpu_hardcoded() {
+    void test_Game_gameLogic_hardcoded_player_victory() {
 
         player = new Player("spelaren");
 
         System.out.println("You have chosen the name " + player.getName());
 
         game.gameLogic(player,cpu,"ROCK", "SCISSORS");
-        when(rock.beats(scissors)).thenReturn(true);
-        assertTrue(rock.beats(scissors));
-        counter.playerWon();
-        assertEquals(1, counter.getPlayerPoints());
-        assertEquals(0, counter.getComputerPoints());
-        System.out.println(player.getName() + " score: " + counter.getPlayerPoints());
-        System.out.println(cpu.getName() + " score: " + counter.getComputerPoints() + "\n");
 
-        System.out.println(player.getName() + " wins!");
     }
 
 }
