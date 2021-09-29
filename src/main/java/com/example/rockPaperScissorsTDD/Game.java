@@ -3,7 +3,6 @@ package com.example.rockPaperScissorsTDD;
 import java.util.Scanner;
 
 public class Game {
-    private GesturesFactory gesturesFactory = new GesturesFactory();
     private final GameCounter counter = new GameCounter();
 
     public Game() { }
