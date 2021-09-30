@@ -92,27 +92,17 @@ public class MockTest {
 
     @Test
     void test_Game_gameLogic_interactive_player_win_with_choice_rock() {
-        InputStream inputStream = System.in;
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter your name");
-        try{
-            Scanner scanner = new Scanner(System.in);
-          //  System.out.println(scanner.nextLine());
-            String playerName = scanner.nextLine();
-            System.setIn(new ByteArrayInputStream(playerName.getBytes()));
-            player = new Player(playerName);
-            System.out.println("You have chosen the name " + player.getName());
 
-        } finally {
-            System.setIn(inputStream);
-        }
+        String name = scanner.nextLine();
+        player = new Player(name);
+        System.out.println("You have chosen the name " + player.getName());
+
+        String playerChoice = scanner.nextLine().toUpperCase();
+        game.gameLogic(player, cpu, playerChoice, "SCISSORS");
 
 
-      //  String playerInput = String.valueOf(playerScanner).toUpperCase();
-
-
-
-
-     //   game.gameLogic(player,cpu, playerInput, "SCISSORS");
 
     }
 }
