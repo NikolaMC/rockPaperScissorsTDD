@@ -76,5 +76,4 @@ public class MockTest {
         when(rock.beats(rock)).thenReturn(false);
         assertFalse(rock.beats(rock));
     }
-
 }
