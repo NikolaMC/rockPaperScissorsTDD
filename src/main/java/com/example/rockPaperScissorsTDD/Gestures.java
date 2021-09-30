@@ -4,5 +4,5 @@ public interface Gestures {
     boolean beats(Paper paper);
     boolean beats(Rock rock);
     boolean beats(Scissors scissors);
-    boolean beats(Gestures gestures);
+    boolean isBeatenBy(Gestures gestures);
 }

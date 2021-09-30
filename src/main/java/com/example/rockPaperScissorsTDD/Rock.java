@@ -12,7 +12,7 @@ public class Rock implements Gestures {
     public boolean beats(Scissors scissors) { return true; }
 
     @Override
-    public boolean beats(Gestures gestures) {
+    public boolean isBeatenBy(Gestures gestures) {
         return gestures.beats(this);
     }
 

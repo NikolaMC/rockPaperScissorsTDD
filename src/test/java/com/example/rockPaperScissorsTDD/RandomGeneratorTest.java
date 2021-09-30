@@ -20,7 +20,6 @@ class RandomGeneratorTest {
         int max = 2;
         int randNum = generator.getRandom();
         System.out.println(randNum);
-        assertTrue(randNum <= max);
-        assertTrue(randNum >= min);
+        assertTrue(randNum <= max && randNum >= min);
     }
 }
