@@ -16,7 +16,7 @@ public class Scissors implements Gestures {
     }
 
     @Override
-    public boolean beats(Gestures gestures) {
+    public boolean isBeatenBy(Gestures gestures) {
         return gestures.beats(this);
     }
 
