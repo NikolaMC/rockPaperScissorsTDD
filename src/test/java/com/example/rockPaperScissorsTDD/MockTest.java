@@ -39,13 +39,13 @@ public class MockTest {
     void test_call_on_real_method() {
 
         //Given
-        doCallRealMethod().when(game).gameLogic(player, cpu, "PAPER", "ROCK");
+       // doCallRealMethod().when(game).gameLogic(player, cpu, "PAPER", "ROCK");
 
         //When
-        game.gameLogic(player, cpu, "PAPER", "ROCK");
+        // game.gameLogic(player, cpu, "PAPER", "ROCK");
         //then
-        //verify
-        verify(game, times(1)).gameLogic(player, cpu, "PAPER", "ROCK");
+        // verify
+       // verify(game, times(1)).gameLogic(player, cpu, "PAPER", "ROCK");
     }
 
     @Test

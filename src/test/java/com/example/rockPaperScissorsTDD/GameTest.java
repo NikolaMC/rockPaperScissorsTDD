@@ -3,6 +3,12 @@ package com.example.rockPaperScissorsTDD;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 class GameTest {
 
     Rock rock;
@@ -23,19 +29,22 @@ class GameTest {
     @Test
     void player1_wins_with_rock_vs_cpu_scissors() {
         // To be continued
+
+    }
+/*
+    @Test
+    void name() {
+        RandomMove randomMove = mock(RandomMove.class);
+        when(randomMove.randomMove()).thenReturn("scissors");
+        Game game = new Game(randomMove, "arne");
+
+        game.throwGesture("rock");
+
+        assertEquals(1, game.getPlayerScore());
+        assertEquals(0, game.getComputerScore());
     }
 
-//    @Test
-//    void name() {
-//        RandomMove randomMove = mock(RandomMove.class);
-//        when(randomMove.randomMove()).thenReturn("scissors");
-//        Game game = new Game(randomMove, "arne");
-//
-//        game.throwGesture("rock");
-//
-//        assertEquals(1, game.getPlayerScore());
-//        assertEquals(0, game.getComputerScore());
-//    }
+ */
 //
 //    @Test
 //    void name1() {
