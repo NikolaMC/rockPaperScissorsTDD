@@ -67,7 +67,7 @@ public class Game {
 
     }
 
-    private String cpuChoice() {
+    public String cpuChoice() {
         RandomGenerator randomGenerator = new RandomGenerator();
         int choice = randomGenerator.getRandom();
         switch (choice) {
