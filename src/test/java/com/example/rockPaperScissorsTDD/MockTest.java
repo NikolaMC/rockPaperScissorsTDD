@@ -76,33 +76,5 @@ public class MockTest {
         when(rock.beats(rock)).thenReturn(false);
         assertFalse(rock.beats(rock));
     }
-/*
-    println är bara till för demonstrativt syfte, de flesta åtkomsterna till dessa sker i loopen i startGame() vilket vi ej hoppar in i här.
- */
-    @Test
-    void test_Game_gameLogic_hardcoded_player_victory() {
 
-        player = new Player("spelaren");
-
-        System.out.println("You have chosen the name " + player.getName());
-
-        game.gameLogic(player,cpu,"ROCK", "SCISSORS");
-
-    }
-
-    @Test
-    void test_Game_gameLogic_interactive_player_win_with_choice_rock() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter your name");
-
-        String name = scanner.nextLine();
-        player = new Player(name);
-        System.out.println("You have chosen the name " + player.getName());
-
-        String playerChoice = scanner.nextLine().toUpperCase();
-        game.gameLogic(player, cpu, playerChoice, "SCISSORS");
-
-
-
-    }
 }

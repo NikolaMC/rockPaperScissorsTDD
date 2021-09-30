@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -16,6 +17,7 @@ class GameTest {
     Scissors scissors;
     Player player;
     Player cpu;
+    Game game;
 
     @BeforeEach
     void setUp() {
@@ -24,11 +26,33 @@ class GameTest {
         scissors = new Scissors();
         player = new Player("player1");
         cpu = new Player("cpu");
+        game = new Game();
     }
 
     @Test
-    void player1_wins_with_rock_vs_cpu_scissors() {
-        // To be continued
+    void test_Game_gameLogic_hardcoded_player_victory() {
+
+        player = new Player("spelaren");
+
+        System.out.println("You have chosen the name " + player.getName());
+
+        game.gameLogic(player, cpu, "ROCK", "SCISSORS");
+
+    }
+
+    @Test
+    void test_Game_gameLogic_interactive_player_win_with_choice_rock() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter your name");
+
+        String name = scanner.nextLine();
+        player = new Player(name);
+
+        System.out.println("You have chosen the name " + player.getName());
+        System.out.println("The game begins now.\nChoose between ROCK, PAPER and SCISSOR");
+
+        String playerChoice = scanner.nextLine().toUpperCase();
+        game.gameLogic(player, cpu, playerChoice, "SCISSORS");
 
     }
 /*

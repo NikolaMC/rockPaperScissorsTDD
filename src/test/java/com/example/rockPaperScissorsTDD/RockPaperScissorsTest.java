@@ -23,7 +23,9 @@ public class RockPaperScissorsTest {
     // Rock tests
 
     @Test
-    void rock_beats_scissors_success() { assertTrue(rock.beats(scissors)); }
+    void rock_beats_scissors_success() {
+        assertTrue(rock.beats(scissors));
+    }
 
     @Test
     void rock_beats_paper_fail() {
@@ -31,7 +33,9 @@ public class RockPaperScissorsTest {
     }
 
     @Test
-    void rock_beats_rock_fail() { assertFalse(rock.beats(rock)); }
+    void rock_beats_rock_fail() {
+        assertFalse(rock.beats(rock));
+    }
 
     // Paper tests
 
