@@ -2,6 +2,11 @@ package com.example.rockPaperScissorsTDD;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
+
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,7 +40,7 @@ public class MockTest {
 
     }
 
-    @Test
+   /* @Test
     void test_call_on_real_method() {
 
         //Given
@@ -44,9 +49,15 @@ public class MockTest {
         //When
         // game.gameLogic(player, cpu, "PAPER", "ROCK");
         //then
+
         // verify
        // verify(game, times(1)).gameLogic(player, cpu, "PAPER", "ROCK");
     }
+
+        //verify
+        verify(game, times(1)).gameLogic(player, cpu, "PAPER", "ROCK");
+    }*/
+
 
     @Test
     void test_rock_lose_against_paper() {
@@ -79,4 +90,29 @@ public class MockTest {
 
     }
 
+    @Test
+    void test_Game_gameLogic_interactive_player_win_with_choice_rock() {
+        InputStream inputStream = System.in;
+        System.out.println("Please enter your name");
+        try{
+            Scanner scanner = new Scanner(System.in);
+          //  System.out.println(scanner.nextLine());
+            String playerName = scanner.nextLine();
+            System.setIn(new ByteArrayInputStream(playerName.getBytes()));
+            player = new Player(playerName);
+            System.out.println("You have chosen the name " + player.getName());
+
+        } finally {
+            System.setIn(inputStream);
+        }
+
+
+      //  String playerInput = String.valueOf(playerScanner).toUpperCase();
+
+
+
+
+     //   game.gameLogic(player,cpu, playerInput, "SCISSORS");
+
+    }
 }
