@@ -23,3 +23,7 @@ class RandomGeneratorTest {
         assertTrue(randNum <= max && randNum >= min);
     }
 }
+
+/*
+    TODO mocka detta testet
+ */

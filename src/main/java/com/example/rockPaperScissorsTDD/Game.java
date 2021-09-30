@@ -64,7 +64,6 @@ public class Game {
         } else {
             System.out.println("What did you do? This was NOT supposed to happen");
         }
-
     }
 
     public String cpuChoice() {

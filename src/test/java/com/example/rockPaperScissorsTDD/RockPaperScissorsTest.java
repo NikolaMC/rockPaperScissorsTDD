@@ -11,6 +11,9 @@ public class RockPaperScissorsTest {
     Paper paper;
     Scissors scissors;
     GameCounter counter;
+    Gestures rock1;
+    Gestures scissors1;
+    Gestures paper1;
 
     @BeforeEach
     void setUp() {
@@ -18,6 +21,9 @@ public class RockPaperScissorsTest {
         paper = new Paper();
         scissors = new Scissors();
         counter = new GameCounter();
+        rock1 = new Rock();
+        scissors1 = new Scissors();
+        paper1 = new Paper();
     }
 
     // Rock tests
@@ -71,4 +77,17 @@ public class RockPaperScissorsTest {
         assertFalse(scissors.beats(rock));
     }
 
+    // Gestures isBeatenBy
+    @Test
+    void test_gestures_isBeatenBy_true() {
+        assertTrue(rock1.isBeatenBy(paper1));
+        assertTrue(paper1.isBeatenBy(scissors1));
+        assertTrue(scissors1.isBeatenBy(rock1));
+    }
+    @Test
+    void test_gestures_isBeatenBy_false() {
+        assertFalse(rock1.isBeatenBy(scissors1));
+        assertFalse(paper1.isBeatenBy(rock1));
+        assertFalse(scissors1.isBeatenBy(paper1));
+    }
 }

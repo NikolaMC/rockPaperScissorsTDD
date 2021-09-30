@@ -2,15 +2,10 @@ package com.example.rockPaperScissorsTDD;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.Scanner;
-
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MockTest {
+public class GameLogicMockTest {
 
     Rock rock;
     Paper paper;
@@ -29,34 +24,35 @@ public class MockTest {
         scissors = mock(Scissors.class);
         player = new Player("player");
         cpu = new Player("cpu");
-        game = new Game();
+        game = mock(Game.class);
         gestures = mock(Gestures.class);
         gesturesFactory = mock(GesturesFactory.class);
         counter = new GameCounter();
     }
-
+/*
+    TODO fortsätt med mockning
+ */
     @Test
     void name() {
 
     }
 
-   /* @Test
+    @Test
     void test_call_on_real_method() {
       //  Given
         doCallRealMethod().when(game).gameLogic(player, cpu, "PAPER", "ROCK");
 
      //   When
-         game.gameLogic(player, cpu, "PAPER", "ROCK");
+     //    game.gameLogic(player, cpu, "PAPER", "ROCK");
      //   then
 
      //    verify
-        verify(game, times(1)).gameLogic(player, cpu, "PAPER", "ROCK");
+     //   verify(game, times(1)).gameLogic(player, cpu, "PAPER", "ROCK");
 
 
         //verify
-        verify(game, times(1)).gameLogic(player, cpu, "PAPER", "ROCK");
-    }*/
-
+     //   verify(game, times(1)).gameLogic(player, cpu, "PAPER", "ROCK");
+    }
 
     @Test
     void test_rock_lose_against_paper() {
