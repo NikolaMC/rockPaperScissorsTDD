@@ -98,10 +98,9 @@ public class MockTest {
         String name = scanner.nextLine();
         player = new Player(name);
         System.out.println("You have chosen the name " + player.getName());
-
+        System.out.println("The game begins now.\nChoose between ROCK, PAPER and SCISSOR");
         String playerChoice = scanner.nextLine().toUpperCase();
         game.gameLogic(player, cpu, playerChoice, "SCISSORS");
-
 
 
     }
