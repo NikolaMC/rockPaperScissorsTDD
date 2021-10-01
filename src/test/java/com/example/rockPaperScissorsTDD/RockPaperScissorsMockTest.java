@@ -38,4 +38,10 @@ public class RockPaperScissorsMockTest {
         when(rock.beats(rock)).thenReturn(false);
         assertFalse(rock.beats(rock));
     }
+
+    @Test
+    void test_rock_wins_against_scissors_isBeatenBy() {
+        when(rock.isBeatenBy(scissors)).thenReturn(false);
+        assertFalse(rock.isBeatenBy(scissors));
+    }
 }
