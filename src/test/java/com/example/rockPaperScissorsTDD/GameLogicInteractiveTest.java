@@ -12,8 +12,8 @@ public class GameLogicInteractiveTest {
 
     private static void test_Game_gameLogic_interactive_player_win_with_choice_rock() {
         // GIVEN
-         Player cpu = new Player("cpu");
-         Game game = new Game();
+        Player cpu = new Player("cpu");
+        Game game = new Game();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter your name to start a new game!");
@@ -25,8 +25,10 @@ public class GameLogicInteractiveTest {
         System.out.println("The game begins now.\nChoose between ROCK, PAPER and SCISSOR");
 
         String playerChoice = scanner.nextLine().toUpperCase();
+
         // WHEN
         game.gameLogic(player, cpu, playerChoice, "SCISSORS");
+
         // THEN
         assertEquals("ROCK", playerChoice);
 
