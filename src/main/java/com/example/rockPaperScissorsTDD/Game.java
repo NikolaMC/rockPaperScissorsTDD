@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Game {
     private final GameCounter counter = new GameCounter();
-
+    RandomGenerator generator = new RandomGenerator();
     public Game() {
     }
 
@@ -20,8 +20,9 @@ public class Game {
         System.out.println("The game begins now.\nChoose between ROCK, PAPER and SCISSOR");
 
         while (isGameLoop(player, cpu)) {
+
             String playerChoice = playerScanner.nextLine().toUpperCase();
-            String cpuChoice = cpuChoice();
+            String cpuChoice = generator.cpuChoice();
 
             if (!playerChoice.equals("ROCK") && !playerChoice.equals("PAPER") && !playerChoice.equals("SCISSORS")) {
                 System.out.println("Invalid gesture");
@@ -66,19 +67,5 @@ public class Game {
         }
     }
 
-    public String cpuChoice() {
-        RandomGenerator randomGenerator = new RandomGenerator();
-        int choice = randomGenerator.getRandom();
-        switch (choice) {
-            case 0:
-                return "ROCK";
 
-            case 1:
-                return "SCISSORS";
-
-            default:
-                return "PAPER";
-
-        }
-    }
 }

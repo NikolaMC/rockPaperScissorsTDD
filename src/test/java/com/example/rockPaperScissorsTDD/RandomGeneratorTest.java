@@ -4,6 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class RandomGeneratorTest {
 
@@ -11,19 +14,13 @@ class RandomGeneratorTest {
 
     @BeforeEach
     void setUp() {
-        generator = new RandomGenerator();
+        generator = mock(RandomGenerator.class);
     }
 
     @Test
-    void test_random_number_success() {
-        int min = 0;
-        int max = 2;
-        int randNum = generator.getRandom();
-        System.out.println(randNum);
-        assertTrue(randNum <= max && randNum >= min);
+    void test_cpuChoice_scissors_success() {
+
+        when(generator.cpuChoice()).thenReturn("SCISSORS");
+        assertEquals("SCISSORS", generator.cpuChoice());
     }
 }
-
-/*
-    TODO mocka detta testet
- */

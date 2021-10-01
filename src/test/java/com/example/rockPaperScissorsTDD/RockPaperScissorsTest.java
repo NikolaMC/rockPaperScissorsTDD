@@ -78,6 +78,7 @@ public class RockPaperScissorsTest {
         assertTrue(paper.isBeatenBy(scissors));
         assertTrue(scissors.isBeatenBy(rock));
     }
+
     @Test
     void test_gestures_isBeatenBy_false() {
         assertFalse(rock.isBeatenBy(scissors));
