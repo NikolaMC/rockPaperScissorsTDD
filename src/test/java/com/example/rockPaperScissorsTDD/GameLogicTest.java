@@ -14,7 +14,7 @@ class GameLogicTest {
 
     @BeforeEach
     void setUp() {
-        player = new Player("player1");
+        player = new Player("spelaren");
         cpu = new Player("cpu");
         game = new Game();
         counter = new GameCounter();
@@ -23,7 +23,6 @@ class GameLogicTest {
     @Test
     void test_Game_gameLogic_hardcoded_player_victory() {
         // Given
-        player = new Player("spelaren");
         String playerChoice = "ROCK";
         System.out.println("You have chosen the name " + player.getName());
 
