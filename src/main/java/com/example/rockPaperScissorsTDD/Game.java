@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class Game {
     private final GameCounter counter = new GameCounter();
     RandomGenerator generator = new RandomGenerator();
+
     public Game() {
     }
 
     public void startGame() {
-        System.out.println("Please enter your name");
+        System.out.println("Please enter your name to start the game!");
         Scanner playerScanner = new Scanner(System.in);
 
         String name = playerScanner.nextLine();
