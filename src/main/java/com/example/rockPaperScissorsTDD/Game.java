@@ -3,10 +3,19 @@ package com.example.rockPaperScissorsTDD;
 import java.util.Scanner;
 
 public class Game {
-    private final GameCounter counter = new GameCounter();
+    private GameCounter counter;
     RandomGenerator generator = new RandomGenerator();
 
     public Game() {
+    }
+
+    public Game(GameCounter counter) {
+        this.counter = counter;
+    }
+
+    public Game(GameCounter counter, RandomGenerator generator) {
+        this.counter = counter;
+        this.generator = generator;
     }
 
     public void startGame() {
